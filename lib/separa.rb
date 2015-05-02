@@ -7,10 +7,11 @@ class Separa
     def initialize(separador = Separa::Text, opts = {})
         if separador.respond_to?(:call)
             @separador = separador
+            @opts = opts
         else
             @separador = Separa::Text
+            @opts = separador
         end
-        @opts = opts
     end
 
     def call(words)

@@ -32,6 +32,13 @@ test "Separa::Text should separate words using another regexp" do
     assert_equal result, ['words are something',' we use']
 end
 
+test "Separa::Text should return an one element array if no split is done" do
+    sep = Separa.new(regexp: /,/)
+    words = "this is hardcore"
+    result = sep.call(words)
+    assert_equal result, ['this is hardcore']
+end
+
 test "Separa::Obj should be loaded" do
     sep = Separa.new(Separa::Obj)
     assert_equal sep.separador, Separa::Obj
