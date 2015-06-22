@@ -1,12 +1,11 @@
 require File.expand_path("../lib/separa", File.dirname(__FILE__))
 
-
 setup do
 	
 end
 
 test "default separator should be text" do
-	sep = Separa.new()
+    sep = Separa.new()
     assert_equal sep.separador, Separa::Text
 end
 
@@ -50,6 +49,14 @@ test "Separa::Obj should separate Obj into key:value pairs" do
     result = sep.call(h)
     assert_equal result, ['uno:1', 'dos:2', 'tres.uno:one', 'tres.dos:two']
 end
+
+test "Separa::Obj should separate Obj into key:value pairs" do
+    sep = Separa.new(Separa::Obj)
+    h = { uno: 1, dos: 2, tres: [:uno, :dos, :tres] }
+    result = sep.call(h)    
+    assert_equal result, ['uno:1', 'dos:2', 'tres:uno', 'tres:dos', 'tres:tres']
+end
+
 
 test "Separa::Obj should separate Obj into key.value pairs" do
     sep = Separa.new(Separa::Obj, divider: '.')

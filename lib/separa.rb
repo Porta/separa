@@ -5,6 +5,8 @@ class Separa
     attr_reader :separador
 
     def initialize(separador = Separa::Text, opts = {})
+        
+
         if separador.respond_to?(:call)
             @separador = separador
             @opts = opts
