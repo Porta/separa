@@ -72,6 +72,7 @@ Writting your own separator is fairly simple. You only need to take care of 3 th
 Take a look at the bundled separators if you need inspiration:
 
 [Separa::Text](./lib/Separa/text.rb)
+
 [Separa::Obj](./lib/Separa/obj.rb)
 
 The code is pretty straightforward.

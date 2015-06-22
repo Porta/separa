@@ -50,17 +50,10 @@ test "Separa::Obj should separate Obj into key:value pairs" do
     assert_equal result, ['uno:1', 'dos:2', 'tres.uno:one', 'tres.dos:two']
 end
 
-test "Separa::Obj should separate Obj into key:value pairs" do
+test "Separa::Obj should separate Obj into key:value pairs, even with arrays" do
     sep = Separa.new(Separa::Obj)
     h = { uno: 1, dos: 2, tres: [:uno, :dos, :tres] }
     result = sep.call(h)    
     assert_equal result, ['uno:1', 'dos:2', 'tres:uno', 'tres:dos', 'tres:tres']
 end
 
-
-test "Separa::Obj should separate Obj into key.value pairs" do
-    sep = Separa.new(Separa::Obj, divider: '.')
-    h = { uno: 1, dos: 2, tres: {uno: 'one', dos: 'two'} }
-    result = sep.call(h)
-    assert_equal result, ['uno.1', 'dos.2', 'tres.uno.one', 'tres.dos.two']
-end
