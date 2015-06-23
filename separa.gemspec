@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name              = "separa"
-  s.version           = "0.0.2"
+  s.version           = "0.0.3"
   s.summary           = "Separa splits chunks of text into tokens to be indexed"
   s.description       = "Separa splits chunks of text into tokens to be indexed by Busca, the simple redis search"
   s.authors           = ["Julián Porta"]
